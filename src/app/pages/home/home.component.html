@@ -3,10 +3,9 @@
       <h1>Pokemon de la Semana</h1>
       <figure class="figure"   style="width: 30%;">
           <img 
-          [src]="pokemons[0].imagen" 
+          [src]="pokemons[indicePokemonSemana].imagen" 
           class="figure-img img-fluid rounded" 
           alt="Pokemon de la semana"
-      
           >
           <figcaption class="figure-caption">Descripción del pokemon.</figcaption>
       </figure>
@@ -27,6 +26,7 @@
                 <div *ngSwitchCase="1">Electrico</div>
                 <div *ngSwitchCase="2">Fuego</div>
                 <div *ngSwitchCase="3">Agua</div>
+                <div *ngSwitchDefault>Desconocido</div>
               </span>
             </div>                    
           </div>

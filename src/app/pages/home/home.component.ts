@@ -2,8 +2,11 @@ import { Component } from '@angular/core';
 import { Pokemon } from '../../utils/pokemon';
 import * as pokemonData from '../../../../public/json/pokemonData.json';
 import { CommonModule } from '@angular/common';
-import {randomInt} from 'crypto'
 
+
+function randomInt(max: number) {
+return Math.floor(Math.random() * max);
+}
 
 @Component({
   selector: 'app-home',
@@ -15,7 +18,7 @@ import {randomInt} from 'crypto'
 
 export class HomeComponent {
 pokemons:Pokemon[]=(pokemonData as any).default;
-idPokemonSemana:number=randomInt(0, 3);
+indicePokemonSemana:number=randomInt(3);
 
   constructor() { }
 
