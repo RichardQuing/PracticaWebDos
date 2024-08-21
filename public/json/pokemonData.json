@@ -2,7 +2,7 @@
     {
     "id": 1,
     "nombre": "Pikachu",
-    "peso": 20.5,
+    "peso": 6,
     "imagen": "imagenes/pikachu.gif",
     "tipo": 1
     },
