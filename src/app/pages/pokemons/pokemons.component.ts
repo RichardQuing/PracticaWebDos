@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Pokemon } from '../../utils/pokemon';
 import * as pokemonData from '../../../../public/json/pokemonData.json';
-import { routes } from '../../app.routes';
 import { Router } from '@angular/router';
 
 
