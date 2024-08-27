@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Pokemon } from '../../utils/pokemon';
 import * as pokemonData from '../../../../public/json/pokemonData.json';
 import { CommonModule } from '@angular/common';
-
+import { PokemonsService } from '../../services/pokemons/pokemons.service';
+import { PokemonResponse } from '../../utils/pokemon';
 
 function randomInt(max: number) {
 return Math.floor(Math.random() * max);
@@ -17,12 +18,22 @@ return Math.floor(Math.random() * max);
 })
 
 export class HomeComponent {
-pokemons:Pokemon[]=(pokemonData as any).default;
-indicePokemonSemana:number=randomInt(3);
+pokemons:Pokemon[]=[];
+indicePokemonSemana:number=randomInt(20);
 
-  constructor() { }
+
+  constructor( private pokemonsService:PokemonsService) { }
 
   ngOnInit(): void {
-    console.log(pokemonData);
-  }
+this.getPokemons();  
 }
+
+  getPokemons():void{
+    this.pokemonsService.getPokemons().subscribe((pokemonResponse)=>{
+      for(const pokemonResult of pokemonResponse.results){
+        this.pokemonsService.getPokemon(pokemonResult.name).subscribe((pokemon)=>{
+          this.pokemons.push(pokemon);
+        });
+      }
+    });
+}}

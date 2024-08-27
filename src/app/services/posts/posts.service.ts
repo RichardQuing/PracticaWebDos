@@ -30,14 +30,14 @@ export class PostsService {
     const headers=new HttpHeaders({
       'Content-Type':'application/json',
     })
-    return this.http.post<Post>(this.url, post,{headers});
+    return this.http.post<Post>(this.url, post);
   }
   
   updatePost(post: Post): Observable<Post> {
     const headers=new HttpHeaders({
       'Content-Type':'application/json',
     })
-    return this.http.put<Post>(`${this.url}/${post.id}`, post, {headers});
+    return this.http.put<Post>(`${this.url}/${post.id}`, post);
   }
 
   deletePost(post:Post): Observable<Post> {

@@ -20,14 +20,14 @@
             (click)="onClickPokemon(pokemon)"
             >
                 <th scope="row">{{pokemon.id}}</th>
-                <td>{{pokemon.nombre}}</td>
-                <td>{{pokemon.peso}}</td>
-                <td>{{pokemon.tipo}}</td>
+                <td>{{pokemon.name}}</td>
+                <td>{{pokemon.weight}}</td>
+                <td>{{pokemon.height}}</td>
                 <td >
                     <img
-                    [src]="pokemon.imagen" 
+                    [src]="pokemon.sprites.front_default" 
                     class="figure-img img-fluid rounded"
-                    [alt]="pokemon.nombre">
+                    [alt]="pokemon.name">
                 </td>
             </tr>
         </tbody>
