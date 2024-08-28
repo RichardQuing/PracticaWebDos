@@ -7,7 +7,7 @@
         type="number"
         [class]="
           form.get('userId')?.invalid && form.get('userId')?.touched
-            ? 'form-control is-valid is-invalid'
+            ? 'form-control is-invalid'
             : 'form-control'
         "
         id="userId"
@@ -22,7 +22,7 @@
         type="text"
         [class]="
           form.get('title')?.invalid && form.get('title')?.touched
-            ? 'form-control is-valid is-invalid'
+            ? 'form-control is-invalid'
             : 'form-control'
         "
         id="title"
@@ -33,23 +33,22 @@
     <div class="mb-3">
       <label for="body" class="form-label">Post</label>
       <textarea
-        formArrayName="body"
+        formControlName="body"
         [class]="
           form.get('body')?.invalid && form.get('body')?.touched
-            ? 'form-control is-valid is-invalid'
+            ? 'form-control is-invalid'
             : 'form-control'
         "
         id="body"
         placeholder="En que estas pensando"
       ></textarea>
       <div class="invalid-feedback">
-        <span *ngIf="form.get('body')?.errors?.['minLength']"
-          >Debe tener al mas de 10 caracteres</span
-        >
-        <span *ngIf="form.get('body')?.errors?.['required']"
-          >El post es obligatorio</span
-        >
-        Ingrese un Post
+        <span *ngIf="form.get('body')?.errors?.['minlength']">
+          Debe tener al menos 10 caracteres
+        </span>
+        <span *ngIf="form.get('body')?.errors?.['required']">
+          El post es obligatorio
+        </span>
       </div>
     </div>
     <div class="mb-3">

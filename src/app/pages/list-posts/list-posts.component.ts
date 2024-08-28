@@ -40,9 +40,7 @@ export class ListPostsComponent {
     }
   }
   updatePost(post: Post): void {
-    const newPost = {
-      ...post, title: 'Titulo actualizado'
-    }
+    const newPost = {...post, title: 'Titulo actualizado'}
     this.postsService.updatePost(newPost).subscribe((post)=>{
       const index = this.posts.findIndex((p) => p.id === post.id);
       this.posts[index] = post;
