@@ -20,7 +20,8 @@ ngOnInit(): void {
 this.route.paramMap.subscribe(
     (params)=>{
       const id =Number( params.get("id"));
-      this.pokemonsService.getPokemonById(id).subscribe((pokemon)=>{
+      this.pokemonsService.getPokemon(id).subscribe(
+        (pokemon)=>{
         this.pokemon=pokemon;
       }
       )

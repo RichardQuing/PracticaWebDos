@@ -9,15 +9,13 @@ import { Pokemon, PokemonResponse } from '../../utils/pokemon';
 export class PokemonsService {
   private url = 'https://pokeapi.co/api/v2/pokemon/';
   constructor(private http: HttpClient) { }
-  getPokemons(): Observable<PokemonResponse> {
-    return this.http.get<PokemonResponse>(this.url);
+  getPokemons(offset: number = 0, limit: number = 20): Observable<PokemonResponse> {
+    return this.http.get<PokemonResponse>( `${this.url}?offset=${offset}&limit=${limit}`);
   }
 
-  getPokemon(name:string): Observable<Pokemon> {
-    return this.http.get<Pokemon>(`${this.url}/${name}`);
+  getPokemon(param:string | number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(`${this.url}${param}`);
   }
 
-  getPokemonById(id:number): Observable<Pokemon> {
-    return this.http.get<Pokemon>(`${this.url}/${id}`);
-  }
+
 }
